@@ -40,7 +40,7 @@ class Account
 
 
     /* Réglage du solde */
-    public function setBalance(float $newBalance)
+    public function setBalance(float $newBalance): void
     {
         if ($newBalance >= $this->overdraft_limit) {
             $this->balance = $newBalance;
@@ -132,11 +132,11 @@ function virement(float $montant, Account $compte1, Account $compte2, bool $sens
 
 
 /* Création de deux comptes pour tester */
-$Customer1 = new Account(125478, "Claudounet", 1000, -100);
+$Customer1 = new Account(125478, "Pétère", 1000, -100);
 
-$Customer2 = new Account(5689, "piteur", 1000, -100);
+$Customer2 = new Account(5689, "Stévène", 1000, -100);
 
 displayCustomer($Customer1);
 displayCustomer($Customer2);
 
-virement(1000, $Customer1, $Customer2, 0);
+virement(1000, $Customer1, $Customer2, 1);
